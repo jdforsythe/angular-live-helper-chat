@@ -15,8 +15,9 @@
  * This will allow you to insert data contained within angular into the Live Helper Chat attrs. For instance, if you have the user id inside Angular, you couldn't
  * normally put this into the LHC widget attrs because it lives outside the scope of Angular. With this directive, you can pass any data in from the parent controller
  */
+ (function(){
 angular.module('angular-live-helper-chat', [])
-  .directive('liveHelperChat', function($interpolate) {
+  .directive('liveHelperChat', ['$interpolate', function($interpolate) {
   	var script = 'var LHCChatOptions = {};' +
   								'LHCChatOptions.opt = {{ options }};' +
   								'{{ attrs ? \'LHCChatOptions.attr = \' + attrs + \';\' : \'\'}}' +
@@ -42,6 +43,14 @@ angular.module('angular-live-helper-chat', [])
       	widgetUrl: $attrs.widgetUrl
       }));
       $element.append(scriptTag);
+
+      $scope.$on('$destroy', function() {
+        // when we destroy the directive (e.g. through ng-if), we want to remove the LHC from the page, if it's there
+        // since LHC uses a separate script to append to the DOM, we need to find its root element, #lhc_status_container
+        var lhc_container = angular.element(document.getElementById('lhc_status_container'));
+        lhc_container.remove();
+      });
 		}
     };
-  });
+  }]);
+})();
