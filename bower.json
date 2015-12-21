@@ -1,0 +1,19 @@
+{
+  "name": "angular-live-helper-chat",
+  "main": "angular-live-helper-chat.js",
+  "authors": [
+    "Jeremy Forsythe <jdforsythe@gmail.com>"
+  ],
+  "description": "AngularJS directive for Live Helper Chat widget.",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "angularjs",
+    "directive",
+    "live",
+    "helper",
+    "chat"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jdforsythe/angular-live-helper-chat"
+}
