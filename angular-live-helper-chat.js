@@ -1,6 +1,6 @@
 /*
  * Angular-Live-Helper-Chat
- * v0.0.1
+ * v0.1.0
  * Jeremy Forsythe <https://github.com/jdforsythe>
  *
  * Usage:
